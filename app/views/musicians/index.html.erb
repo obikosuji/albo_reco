@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Musicians
+    <a href="/musicians/new" class="btn btn-lg btn-success">New Musician</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Genre</th>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @musicians.each do |musician| %>
+      <tr>
+        <td><%= musician.genre %></td>
+        <td><%= musician.name %></td>
+        <td>
+          <a href="/musicians/<%= musician.id %>" class="btn btn-primary">Show</a>
+          <a href="/musicians/<%= musician.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_musician/<%= musician.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
