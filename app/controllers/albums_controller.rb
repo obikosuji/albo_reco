@@ -9,6 +9,7 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
+    @musician = Musician.new
   end
 
   def create
@@ -16,6 +17,8 @@ class AlbumsController < ApplicationController
     @album.musician_id = params[:musician_id]
     @album.year = params[:year]
     @album.name = params[:name]
+
+
 
     if @album.save
       redirect_to "/albums", :notice => "Album created successfully."

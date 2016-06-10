@@ -24,9 +24,17 @@
           Musician
         </label>
 
-        <input type="text" id="musician_id" name="musician_id" placeholder="Musician" class="form-control" value="<%= @album.musician_id %>">
-      </div>
+        <%= select_tag(:musician_id,
+        options_from_collection_for_select(Musician.all, :id, :name, @album.musician_id), :class => "form-control") %>
 
+
+              or
+              <a href="/musicians/new">Add a New Artist</a>
+</div>
+
+              <input type="text" id="musician_id" name="musician_id" placeholder="Musician" class="form-control" value="<%= @album.musician_id %>">
+                </div>
+</div>
       <!-- Label and input for year -->
       <div class="form-group">
         <label for="year" class="control-label">

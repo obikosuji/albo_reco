@@ -16,9 +16,21 @@
       <a href="/albums/<%= album.id %>"><dd><%= album.name %>
 (<%= album.year %>)</dd>
 </a>
-
       <% end %>
-    </dl>
+</dl>
+
+<dl class="dl-horizontal">
+
+      <dt>Artists You Might Like</dt>
+      <% Musician.where({:genre => @musician.genre}).where.not(:name => @musician.name).each do |musician| %>
+      <a href="/musicians/<%= musician.id %>">
+        <dd><%= musician.name %>
+    </dd>
+    </a>
+      <% end %>
+</dl>
+
+
 
     <div class="btn-group btn-group-justified">
       <a href="/musicians" class="btn btn-primary">

@@ -13,7 +13,17 @@
 
       <dt>Name</dt>
       <dd><%= @album.name %></dd>
+    </dl>
 
+    <dl class="dl-horizontal">
+
+          <dt>Albums You Might Like</dt>
+          <% Album.where({:year => @album.year}).where.not(:name => @album.name).each do |album| %>
+          <a href="/albums/<%= album.id %>">
+            <dd><%= album.name %>
+        </dd>
+        </a>
+          <% end %>
     </dl>
 
     <div class="btn-group btn-group-justified">

@@ -4,4 +4,5 @@ class Musician < ActiveRecord::Base
 
 
   has_many :albums, :class_name => "Album", :foreign_key => "musician_id"
+  
 end

@@ -6,6 +6,7 @@ class MusiciansController < ApplicationController
   def show
     @musician = Musician.find(params[:id])
     @album = Album.new
+
   end
 
   def new
